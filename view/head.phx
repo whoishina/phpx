@@ -1,0 +1,7 @@
+view head($args) {
+    return (
+        <div>
+        <h1>Hello hel</h1>
+        </div>
+    )
+}

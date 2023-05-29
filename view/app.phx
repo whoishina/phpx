@@ -1,0 +1,36 @@
+function isLoading() {
+    if($_GET['title']) return true;
+    return false;
+}
+
+view app($args) {
+    // start php scripts
+    if(isLoading()) $loading = Html\div("Loading...");
+    $x = 100;
+
+    // get action url for form
+    $getActionUrl = void(function() {
+        return "/";
+    });
+
+    // end php scripts
+    // render html
+    return (
+        <form
+            class=form-group
+            id=title-input
+            action=$getActionUrl
+            method=post
+            >
+            <div >
+            // section view
+                <section>$loading</section>
+                <h1>PHX Test rendering</h1>
+                <p>args passed from php: $args</p>
+                <input type="number" name="title" value=$x />
+            </div>
+
+            <button type="submit" class="btn btn-primary" >Login</button>
+        </form>
+    )
+}
